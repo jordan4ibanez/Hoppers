@@ -276,6 +276,7 @@ minetest.register_abm({
 						--print("no room for items")
 						return
 					end
+					minetest.get_node_timer({x=pos.x,y=pos.y-1,z=pos.z}):start(1.0)
 					stack:take_item(1)
 					inv:set_stack("main", i, stack)
 					--add to hopper or chest
@@ -447,6 +448,7 @@ minetest.register_abm({
 					inv:set_stack("main", i, stack)
 					--add to hopper or chest
 					--print("adding item")
+					minetest.get_node_timer(front):start(1.0)
 					inv2:add_item("fuel", item)
 					break
 					
